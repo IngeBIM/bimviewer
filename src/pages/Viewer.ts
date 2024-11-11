@@ -2,14 +2,14 @@ import * as THREE from "three";
 import * as OBC from "@thatopen/components";
 import * as OBF from "@thatopen/components-front";
 import * as BUI from "@thatopen/ui";
-import projectInformation from "./components/Panels/ProjectInformation";
-import elementData from "./components/Panels/Selection";
-import settings from "./components/Panels/Settings";
-import load from "./components/Toolbars/Sections/Import";
-import help from "./components/Panels/Help";
-import camera from "./components/Toolbars/Sections/Camera";
-import selection from "./components/Toolbars/Sections/Selection";
-import { AppManager } from "./bim-components";
+import projectInformation from "../components/Panels/ProjectInformation";
+import elementData from "../components/Panels/Selection";
+import settings from "../components/Panels/Settings";
+import load from "../components/Toolbars/Sections/Import";
+import help from "../components/Panels/Help";
+import camera from "../components/Toolbars/Sections/Camera";
+import selection from "../components/Toolbars/Sections/Selection";
+import { AppManager } from "../bim-components";
 
 BUI.Manager.init();
 
@@ -143,8 +143,11 @@ const leftPanel = BUI.Component.create(() => {
     </bim-tabs> 
   `;
 });
+const body = document.querySelector("body");
+const app = document.createElement("bim-grid") as BUI.Grid;
+body!.appendChild(app);
 
-const app = document.getElementById("app") as BUI.Grid;
+// const app = document.getElementById("app") as BUI.Grid;
 app.layouts = {
   main: {
     template: `
