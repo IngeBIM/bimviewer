@@ -14,16 +14,9 @@ import { AppManager } from "../bim-components";
 
 const IFCViewer: React.FC = () => {
   useEffect(() => {
-    // Check if viewer already exists
-    const existingViewer = document.querySelector("bim-grid");
-    if (existingViewer) {
-      console.warn("IFC Viewer is already mounted");
-      return;
-    }
 
     const initViewer = async () => {
       BUI.Manager.init();
-
       const components = new OBC.Components();
       const worlds = components.get(OBC.Worlds);
 
@@ -158,7 +151,7 @@ const IFCViewer: React.FC = () => {
       //const appContainer = document.getElementById("app") as HTMLElement
       const body = document.querySelector("body");
       const app = document.createElement("bim-grid") as BUI.Grid;
-      body!.innerHTML = "";
+      //body!.innerHTML = "";
       body!.appendChild(app);
 
       app.layouts = {
@@ -197,17 +190,16 @@ const IFCViewer: React.FC = () => {
           },
         },
       };
-
       viewportGrid.layout = "main";
     };
 
-    initViewer();
-
     // Cleanup function
     return () => {
-      const app = document.querySelector("bim-grid");
-      if (app) {
-        app.remove();
+      const container = document.querySelector("bim-grid");
+      if (container) {
+        container.remove();
+      }else{
+        initViewer();
       }
     };
   }, []); // Empty dependency array means this effect runs once on mount

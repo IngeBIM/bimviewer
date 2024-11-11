@@ -1,11 +1,11 @@
 // AppRouter.tsx
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
 import Dashboard from '../pages/Dashboard';
+import Viewer from "../pages/Viewer";
 import { logout } from '../helpers/auth';
 import { firebaseAuth } from '../firebase/index';
 
@@ -57,7 +57,7 @@ class AppRouter extends Component<{}, { authed: boolean; loading: boolean }> {
             <div className="container">
               <div className="navbar-header">
                 <Link to="/" className="navbar-brand">
-                  React Router + Firebase Auth
+                  IngeBIM Viewer
                 </Link>
               </div>
               <ul className="nav navbar-nav pull-right">
@@ -69,6 +69,11 @@ class AppRouter extends Component<{}, { authed: boolean; loading: boolean }> {
                 <li>
                   <Link to="/dashboard" className="navbar-brand">
                     Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/viewer" className="navbar-brand">
+                    Viewer
                   </Link>
                 </li>
                 <li>
@@ -112,6 +117,10 @@ class AppRouter extends Component<{}, { authed: boolean; loading: boolean }> {
                 <Route
                   path="/dashboard"
                   element={<PrivateRoute authed={this.state.authed} component={Dashboard} />}
+                />
+                <Route
+                  path="/viewer"
+                  element={<PrivateRoute authed={this.state.authed} component={Viewer} />}
                 />
                 <Route path="*" element={<h3>No Match</h3>} />
               </Routes>
