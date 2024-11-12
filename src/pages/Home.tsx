@@ -1,5 +1,5 @@
 // Home.tsx
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 interface HomeProps {}
 

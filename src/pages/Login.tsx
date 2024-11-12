@@ -1,4 +1,4 @@
-import React, { Component, FormEvent } from 'react'
+import { Component, FormEvent } from 'react'
 import { login, resetPassword } from '../helpers/auth'
 
 function setErrorMsg(error: string) {
