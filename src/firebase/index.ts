@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAXMledOEvT_IzICn52wOWDeapFUlCSs7I",
-  authDomain: "bimviewer-c0824.firebaseapp.com",
-  projectId: "bimviewer-c0824",
-  storageBucket: "bimviewer-c0824.firebasestorage.app",
-  messagingSenderId: "686177392258",
-  appId: "1:686177392258:web:29170044c3163f62c0869b"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
